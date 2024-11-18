@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h3>Remember kids, JavaScript is absolutely not weird at all</h3>
+<div id="displayName"></div>
+
+<script>
+const out = document.getElementById('displayName')
+
+const name = ''.split(' ')
+
+//Display welcome {full-name} to the user's profile page:
+if ( name.length == 2 ) {
+    out.innerHTML = `<p>Welcome back <b>${prettify(name[0])} ${prettify(name[1])}</b>!</p>`
+} else {
+    out.innerHTML = '<b style="color:orange">Invalid name given!</b>'
+}
+
+//Prettify with uppercase *blink* and validate the name
+function prettify(s) {
+  len = s.length
+  s = s.toUpperCase()
+  for ( let i = 0; i < len; i++ ) {    
+    
+    //Check so that the name only contains letters:
+    if ( s[i].codePointAt() < 65 || s[i].codePointAt() > 90 ) {
+      console.error('DANGER :', s[i])
+      return '<b style="color:red;">DANGER</b>'
+    }
+  }
+  return s
+}
+</script>
+</body>
+<!-- Design only, not a part of the challenge -->
+<img src="https://media0.giphy.com/media/3oz8xvoMI6gJ6rySVW/giphy.gif">
+<style>
+body{background-image:url("https://media2.giphy.com/media/xUPGcB7dYAIBjMG2CQ/giphy.gif");background-position:center;background-color:#393534;color:#fff;background-repeat:no-repeat;text-align:center;}img{border-color:#40e0d0;width:200px;height:auto;border-radius:50%;border:2px solid #40e0d0}#displayName{font-size:22px;}
+</style>
+</html>
